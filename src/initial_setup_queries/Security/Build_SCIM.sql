@@ -1,0 +1,6 @@
+USE ROLE ACCOUNTADMIN;
+CREATE OR REPLACE ROLE AAD_PROVISIONER;
+Grant Create User on account to AAD_PROVISIONER;
+grant Create role on account to AAD_PROVISIONER;
+create or replace security INTEGRATION AAD_PROVISIONER type=scim scim_client=azure run_as_role='AAD_PROVISIONER';
+SELECT SYSTEM$GENERATE_SCIM_ACCESS_TOKEN('AAD_PROVISIONING');

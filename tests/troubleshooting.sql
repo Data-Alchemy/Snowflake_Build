@@ -1,0 +1,1 @@
+create table troubleshooting_table_clone clone table before (timestamp => to_timestamp(40*365*86400));
