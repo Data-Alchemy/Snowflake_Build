@@ -1,9 +1,21 @@
 # Snowflake Build
-This repo contains all the elements involved in setting up and configuring the Snowflake application 
-This pipeline will setup and install Snowflake utilities in a target environment  
 
 [![Build Status][travis-image]][travis-url]
 
+This repo contains all the elements involved in setting up and configuring the Snowflake application 
+This pipeline will setup and install Snowflake utilities in a target environment  
+
+
+
+`By following the steps in this repo you will create a new secure Snowflake Environment`
+
+<br>
+
+## Solution Diagrams
+<br>
+### SSO & MFA
+
+![Alt text](src/initial_setup_queries/Security/sso_configuration.gif)
 ## What is snowflake
 
 
