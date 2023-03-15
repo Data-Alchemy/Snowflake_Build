@@ -51,43 +51,45 @@ Snowflake Org:
 Environment         :   Production
 Organization        :	
 Name                :	
-Cloud               :	Microsoft Azure
+Cloud               :	
 Region              :	
-Edition             :	Enterprise
+Edition             :	
 Locator             :	
 Verison             :   1.0
 ```
 [Link]()
 
 
-Application Dependencies:
+## Application Dependencies:
 
-[ADF]()
+### ETL / ELT 
+
+[ETL Tool]()
 
 ```
 Environment             : Production
-Application             : Azure Data Factory
+Application             : ETL Tool Name
 Name                    : 
-OS                      : Windows Server
+OS                      : 
 Verison                 : 1.0
 ```
 
 ```
 Environment             : Test
-Application             : Azure Data Factory
+Application             : ETL Tool Name
 Name                    : 
-OS                      : Windows Server
+OS                      : 
 Verison                 : 1.0
 ```
 
 ```
 Environment             : Development
-Application             : Azure Data Factory
+Application             : ETL Tool Name
 Name                    : 
-OS                      : Windows Server
+OS                      : 
 Verison                 : 1.0
 ```
-
+## ML & Datascience
 [Databricks]()
 ```
 Environment             : Production
@@ -152,8 +154,7 @@ Verison                 : 1.0
 ```
 
 
-## Solution Diagrams
-![Soluction][solution-diagram]
+
 
 
 
@@ -186,7 +187,6 @@ Repo Owner – sebastian.hansen@dataalchemy.dev
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [deployment-diagram]: https://lucid.app/publicSegments/view/714776b6-8cb5-4280-9957-ee1300c696d1/image.png
-[solution-diagram]: https://lucid.app/publicSegments/view/b72e16f2-836d-408e-9df0-f5e805941ea2/image.png
 [forking-repo]: https://docs.microsoft.com/en-us/azure/devops/repos/git/forks?view=azure-devops&tabs=visual-studio-2019
 [choco]: https://community.chocolatey.org/courses/getting-started/what-is-chocolatey
 [snowflake-pbi-integration]: https://docs.snowflake.com/en/user-guide/oauth-powerbi.html
