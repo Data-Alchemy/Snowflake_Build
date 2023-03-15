@@ -3,7 +3,9 @@
                       --------- CREATE DB & Schemas  ---------             
   USE ROLE SYSADMIN;
   -- create dev databases for each data source: source1, source2 etc.,
-  CREATE DATABASE bronze_db COMMENT = 'Bronze database is organized by source system';
+ CREATE DATABASE staging_db COMMENT = 'Bronze database is organized by source system';
+ ----------------------------------------------------------------------------------------
+ CREATE DATABASE bronze_db COMMENT = 'Bronze database is organized by source system';
  ----------------------------------------------------------------------------------------
  CREATE DATABASE silver_db COMMENT = 'Silver database is organized by source system';
  ---------------------------------------------------------------------------------------- 
