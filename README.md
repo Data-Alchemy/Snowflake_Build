@@ -11,11 +11,6 @@ This pipeline will setup and install Snowflake utilities in a target environment
 
 <br>
 
-## Solution Diagrams
-<br>
-SSO & MFA implementation
-
-![Alt text](src/initial_setup_queries/Security/sso_configuration.gif)
 ## What is snowflake
 
 
