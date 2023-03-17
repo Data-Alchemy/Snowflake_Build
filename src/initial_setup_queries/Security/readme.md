@@ -16,8 +16,7 @@ Here is a logical organization of how we can group our roles:
 # Setting up SSO and SCIM for Snowflake with Azure AD
 This guide will walk you through the steps to configure SSO and SCIM for Snowflake with Azure AD.
 
-#
-### Solution Diagram
+# SSO & MFA
 <br>
 
 ![Alt text](sso_configuration.gif)
