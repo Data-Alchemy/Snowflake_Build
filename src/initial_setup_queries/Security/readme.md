@@ -10,8 +10,7 @@ In RBAC, users are assigned roles ​that determine what actions they ​can per
 Here is a logical organization of how we can group our roles:
 <br>
 
-<img src="https://lucid.app/publicSegments/view/91efca2a-b63b-4554-8d7d-f08e29eefecf/image.png
-" width=60% height=70%>
+<img src="https://lucid.app/publicSegments/view/91efca2a-b63b-4554-8d7d-f08e29eefecf/image.png" width=60% height=70%>
 
 
 # Setting up SSO and SCIM for Snowflake with Azure AD
@@ -73,6 +72,7 @@ This guide will walk you through the steps to configure SSO and SCIM for Snowfla
 
 10. To configure SCIM we will run the following query in Snowflake. This will generate a token which we need to copy for our next step
 
+```
     use role accountadmin;
     create role if not exists aad_provisioner;
     grant create user on account to role aad_provisioner;
@@ -83,6 +83,7 @@ This guide will walk you through the steps to configure SSO and SCIM for Snowfla
         scim_client = 'azure'
         run_as_role = 'AAD_PROVISIONER';
     select system$generate_scim_access_token('aad_provisioner');
+```
 
 11. Return to azure and go to the provisioning tab and complete the following steps:
 
