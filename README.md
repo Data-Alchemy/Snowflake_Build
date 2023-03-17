@@ -46,7 +46,53 @@ In summary, Snowflake is a powerful and versatile data warehousing platform that
 ![Screenshot](Lifecycle.jpg)
 ## Build Tasks
 
-#### Intial Setup
+### Intial Setup
+We are going to breakdown a Snowflake setup into 3 areas Security, Devops & Business Continuity and Disaster Recovery. This order seems to make the most sense for most of the implementations I have done.
+
+#### Security
+
+With security we can lay the ground work for everything else we setup lets break this down into the steps we want to achieve:
+
+- *Network Policies* : With network policies we can avoid undesired attempts to access our system right from the get go. Any IP not part of our policy will not be allowed to even login.
+- *SCIM*: With SCIM (System for Cross-Domain Identity Management) we can automate the creation of our users in our tool through a centrally managed tool like Azure Active Directory. This makes it easier for us to add or remove access.
+- *SSO* : With SSO we can reduce the risk of our credentials getting passed around everytime we want to login and since it is centrally managed we can enforce better password policies. Additionally we can combine with MFA (Multifactor Authentication) to better protect user accounts.
+- RBAC: With RBAC (Role based access control) we can create roles tailor made for a specific purpose. Think of a role as a job function within the organization (HR, Finance, Security) these work in different spaces that requires them to complete different task.
+- Data Encryption : We can create dynamic processes that automatically encrypt our data on a set of conditions.
+- Data Masking: We can create dynamic masking policies on top of our secure views 
+
+Check our security folder for all the scripts and more indepth guide to set this up
+
+#### Devops
+
+Here we will setup our resources and framework for development. The main things we want to look at are our warehouses (compute), scaling policies , data structure & data strategy. Here is a list of the most common objects 
+
+- Databases
+- Schemas
+- Tables
+- Dynamic Tables
+- Views
+- Materialized Views
+- Sequences
+- Stages
+- File Formats
+- Pipes
+- Integrations
+- Shares
+- Tasks
+- Stored Procedures
+- User-defined Functions
+- Warehouses
+- Clones
+- External Functions
+- Streams
+- Resource Monitors
+
+
+We will aLso want to focus on our development strategy how to we plan to manage our code , what environments (dev , test, prod) we will have, how to track code changes and deploy our code.
+There are large amount of ways this can be achieved but we will focus on using CICD processes in Azure Devops to manage most of the heavy lifting for this phase.
+
+
+Here are some of our initial setup script you can review:
 *build sql artifacts are executed in order as listed below*
 - [Build_Env.sql](src\initial_setup_queries\Build_Env.sql) Create base env objects in Snowflake(Databases, Warehouses)
 - [Build_Schemas.sql](src\initial_setup_queries\Build_Schemas.sql) Creates base subject areas for storing data in each DB (Application_Data, Retail_Data, Master_Data, People_Data,Finance_Data,Supply_Chain,Sandbox_Data)
@@ -55,7 +101,7 @@ In summary, Snowflake is a powerful and versatile data warehousing platform that
 - [Build_Permissions_Object.sql](src\initial_setup_queries\Build_Permissions_Object.sql) Creates Admin Database and objects to manage permissions in Snowflake. Follows Linux permission naming convention (RWX)
 
 
-
+For documentation purposes I have included a documentation template that can be used to track interdependencies.
 
 ## Environment Information
 Snowflake Org:
