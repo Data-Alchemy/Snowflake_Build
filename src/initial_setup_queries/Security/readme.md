@@ -1,3 +1,19 @@
+
+# Security 
+
+Snowflake is a security first SaaS platform it provides a suite of tools that you can use to secure your environment
+
+## RBAC (role-based access control)
+
+In RBAC, users are assigned roles ​that determine what actions they ​can perform and what data they ​can access. Think of a role as the different departments at a company we might have a finance team, a HR team and a operations team. All of the people that belong to those teams have different jobs and need to complete different tasks. This is the same with roles. We want to make sure that everyone that is able to do their job but still keeping security in mind.
+
+Here is a logical organization of how we can group our roles:
+<br>
+
+<img src="https://lucid.app/publicSegments/view/91efca2a-b63b-4554-8d7d-f08e29eefecf/image.png
+" width=60% height=70%>
+
+
 # Setting up SSO and SCIM for Snowflake with Azure AD
 This guide will walk you through the steps to configure SSO and SCIM for Snowflake with Azure AD.
 
@@ -11,7 +27,7 @@ This guide will walk you through the steps to configure SSO and SCIM for Snowfla
 - Access to the Azure Portal
 - Snowflake account with account admin role
 
-## Steps
+## Manual Steps
 1. Login to the azure portal
 
 2. In the search bar type enterprise registrations
@@ -31,7 +47,7 @@ This guide will walk you through the steps to configure SSO and SCIM for Snowfla
 7. On the Set up Single Sign-On with SAML page, in the SAML Signing Certificate section, click Download to download the Certificate (Base64) from the given options as per your requirement and save it on your computer.
 
 8. Login to Snowflake with an account admin role and execute the following query make sure to do the following populate the parameterized sections in this script seen with {}, to your actual values (remove {})
-
+```
     CREATE SECURITY INTEGRATION AZURE_AAD_INTEGRATION
     TYPE = SAML2
     ENABLED = TRUE
@@ -47,11 +63,12 @@ This guide will walk you through the steps to configure SSO and SCIM for Snowfla
 
     show parameters like 'SAML_IDENTITY_PROVIDER' in account;
     desc security integration AZURE_AAD_INTEGRATION;
+
     alter security integration AZURE_AAD_INTEGRATION 
       set saml2_snowflake_acs_url = 'https://{your account identifier}.snowflakecomputing.com/fed/login';
     alter security integration AZURE_AAD_INTEGRATION 
       set saml2_snowflake_issuer_url = 'https://{your account identifier}.snowflakecomputing.com';
-
+```
 9. Go back to the enterprise app in azure and test your connection from the single sign-on page 
 
 10. To configure SCIM we will run the following query in Snowflake. This will generate a token which we need to copy for our next step
@@ -78,6 +95,10 @@ For more information you can review these links:
 - [setting up sso][sso]
 - [setting up scim][scim]
 
-{!-- Markdown link & img dfn's --}
+
+<!-- Markdown link & img dfn's -->
+
 [sso]:https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/snowflake-tutorial
 [scim]:https://docs.snowflake.com/en/user-guide/scim-azure
+[rbac]:https://lucid.app/publicSegments/view/91efca2a-b63b-4554-8d7d-f08e29eefecf/image.png
+ 
